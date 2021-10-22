@@ -22,9 +22,6 @@ class HttpRequest:
         request_instance.meta = http_head[0].decode("utf-8")
         http_head = http_head[1:]
 
-        if len(http_parts) >= 2:
-            request_instance.bytes = http_parts[1]
-
         for header in http_head:
             key, value = header.split(b": ")
             request_instance.headers[key.decode("utf-8")] = value.decode("utf-8")
